@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>R Interface</title>
+  <style>
+    .hidden {
+      display: none;
+    }
+  </style>
+  <script>
+    function toggleText(elementId) {
+      var element = document.getElementById(elementId);
+      if (element.classList.contains("hidden")) {
+        element.classList.remove("hidden");
+      } else {
+        element.classList.add("hidden");
+      }
+    }
+  </script>
+
+    <script>
+        window.onload = function() {
+            var filePath = decodeURIComponent(window.location.pathname);
+            var currentDir = filePath.substring(0, filePath.lastIndexOf('/'));
+            
+            var directoryElement = document.getElementById('currentDirectory');
+            directoryElement.textContent = "Current Directory: " + currentDir;
+        };
+    </script>
+
+</head>
+<body>
+
+<h1> A standalone interface for blind users wanting an accessible interactive R experience</h1>
+
+This interface is designed to replace an interactive R session, normally run using an R Terminal or the R GUI. In either case, long amounts of output are not accessible to a blind user.
+  <button onclick="toggleText('Credits')">
+    Show/hide the credits
+    </button>
+
+  <div id="Credits" class="hidden">
+    This interface was started by Jonathan Godfrey in July 2023. The back end needs to be sorted out, but javascript tools seem to have some chance of working.
+    </div>
+
+
+  <button onclick="toggleText('instructions')">
+    Click here to show/hide Instructions 
+    </button>
+  <div id="instructions" class="hidden">
+Instructions are separated for the sections of this interface. Take a quick look at the rest of the page to familiarise yourself with the overall layout before reading the instructions for using each section.
+
+  <button onclick="toggleText('InstructionsGettingStarted')">
+    Show/hide instructions for getting started
+    </button>
+
+  <div id="InstructionsGettingStarted" class="hidden">
+    These are the instructions for getting started section 
+    </div>
+
+
+  <button onclick="toggleText('InstructionsOutput')">
+    Show/hide instructions for the output section
+    </button>
+
+  <div id="InstructionsOutput" class="hidden">
+    These are the instructions for output section 
+    </div>
+
+
+  <button onclick="toggleText('InstructionsNextSteps')">
+    Show/hide instructions for the next steps section.
+    </button>
+  <div id="InstructionsNextSteps" class="hidden">
+      When you are ready to type commands, go to the only edit box on this creen. You can type commands or copy and paste them into the box. To execute the commands just click on the next button called "Execute". N.B. Execution of code is only possible if you have specified the working directory in the Getting Started section.<br>
+      If you have finished entering commands, look to save your work using one or more of the other three buttons at the bottom of this page. These buttons will:
+      <ol>
+        <li>save all the work done including input and output,</li>
+        <li>save your commands as an R script, or</li>
+        <li>save your commands in the form of an R markdown file.</li>
+      </ol>
+      When you click a button to save your work, you will be prompted to choose a filename etc.
+  </div>
+</div>
+
+  <div id="outputArea">
+    <h2> Getting ready</h2>
+    <p id="currentDirectory"></p>
+
+
+  </div>
+
+  <div id="outputArea">
+    <h2> Output to date</h2>
+  </div>
+
+  <div>
+    <h2>Next steps</h2>
+    <input type="text" id="commandInput" placeholder="Enter an R command" />
+    <button onclick="executeCommand()">Execute</button>
+
+    <button onclick="copyAllOutputToFile()">Copy all output to a text file</button>
+    <button onclick="MakeRScriptFile()">Copy R input to a R script file</button>
+    <button onclick="MakeRmdFile()">Convert all input to an R markdown file</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
