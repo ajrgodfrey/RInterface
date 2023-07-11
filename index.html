@@ -8,26 +8,10 @@
       display: none;
     }
   </style>
-  <script>
-    function toggleText(elementId) {
-      var element = document.getElementById(elementId);
-      if (element.classList.contains("hidden")) {
-        element.classList.remove("hidden");
-      } else {
-        element.classList.add("hidden");
-      }
-    }
-  </script>
 
-    <script>
-        window.onload = function() {
-            var filePath = decodeURIComponent(window.location.pathname);
-            var currentDir = filePath.substring(0, filePath.lastIndexOf('/'));
-            
-            var directoryElement = document.getElementById('currentDirectory');
-            directoryElement.textContent = "Current Directory: " + currentDir;
-        };
-    </script>
+  <!-- Include the external script files -->
+  <script src="ButtonActions.js"></script>
+  <script src="FolderActions.js"></script>
 
 </head>
 <body>
