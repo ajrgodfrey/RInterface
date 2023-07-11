@@ -1,36 +1,3 @@
-
-<!DOCTYPE html>
-<html>
-<head>
-  <title>R Interface</title>
-
-  <!-- Include the external CSS file -->
-  <link rel="stylesheet" href="styles.css">
-
-  <!-- Include the external script files -->
-  <script src="ButtonActions.js"> </script>
-  <script src="FolderActions.js"> </script>
-  <script src="FetchHTMLContent.js"> </script>
-
-</head>
-<body>
-
-<h1> A standalone interface for blind users wanting an accessible interactive R experience</h1>
-
-This interface is designed to replace an interactive R session, normally run using an R Terminal or the R GUI. In either case, long amounts of output are not accessible to a blind user.
-
-  <button onclick="toggleText('Credits')">
-    Show/hide the credits
-    </button>
-
-  <div id="Credits" class="hidden">
-    This interface was started by Jonathan Godfrey in July 2023. The back end needs to be sorted out, but javascript tools seem to have some chance of working.
-    </div>
-
-
-  <button onclick="toggleText('instructions')">
-    Click here to show/hide Instructions 
-    </button>
   <div id="instructions" class="hidden">
 Instructions are separated for the sections of this interface. Take a quick look at the rest of the page to familiarise yourself with the overall layout before reading the instructions for using each section.
 
@@ -71,29 +38,3 @@ If the current directory is not where you want to be working, you will need to h
       When you click a button to save your work, you will be prompted to choose a filename etc.
   </div>
 </div>
-
-  <div id="outputArea">
-    <h2> Getting ready</h2>
-    <p id="currentDirectory"></p>
-    <button>  Get working </button> 
-    <button> Change directory </button> 
-  </div>
-
-  <div id="outputArea">
-    <h2> Output to date</h2>
-  </div>
-
-  <div>
-    <h2>Next steps</h2>
-    <input type="text" id="commandInput" placeholder="Enter an R command" />
-    <button onclick="executeCommand()">Execute</button>
-
-    <button onclick="copyAllOutputToFile()">Copy all output to a text file</button>
-    <button onclick="MakeRScriptFile()">Copy R input to a R script file</button>
-    <button onclick="MakeRmdFile()">Convert all input to an R markdown file</button>
-  </div>
-
-
-
-</body>
-</html>
